@@ -33,12 +33,10 @@ class FriendsController < ApplicationController
 
   # PATCH/PUT /friends/1 or /friends/1.json
   def update
-    respond_to do |format|
-      if @friend.update(friend_params)
-        redirect_to @friend, notice: "Friend was successfully updated."
-      else
-        render :edit, status: :unprocessable_entity
-      end
+    if @friend.update(friend_params)
+      redirect_to @friend, notice: "Friend was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 

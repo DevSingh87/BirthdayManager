@@ -1,24 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-3">
+    <%= link_to 'Edit', edit_friend_path(@friend) %> |
+    <%= link_to 'Back', friends_path %>
+  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @friend.name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @friend.email %>
-</p>
-
-<p>
-  <strong>Dob:</strong>
-  <%= @friend.dob %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @friend.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_friend_path(@friend) %> |
-<%= link_to 'Back', friends_path %>
+</div>
+<div class="row">
+  <div class="col-3">
+    <p><i class="fas fa-user"></i> <strong><%= @friend.name %></strong></p>
+  </div>
+  <div class="col-3">
+    <p><i class="fas fa-envelope"></i> <%= @friend.email %></p>
+  </div>
+  <div class="col-3">
+    <p><i class="far fa-calendar-alt"></i> <%= @friend.dob %></p>
+  </div>
+</div>

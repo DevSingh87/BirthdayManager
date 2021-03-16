@@ -2,3 +2,49 @@
 .flash__alert   { color: red; }
 .flash__notice  { color: blue; }
 .flash__success { color: green; }
+
+
+#cover {
+    background: #222 url('/assets/birthday.jpg') center center no-repeat;
+    background-size: cover;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+#cover-caption {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* only used for background overlay not needed for centering */
+#login {
+    content: '';
+    left: 0;
+    position: relative;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+
+nav.navbar {
+  padding: 0px 100px 0px 100px;
+}
+
+.container {
+  padding: 2rem 0rem;
+}
+
+h4 {
+  margin: 2rem 0rem 1rem;
+}
+
+.table-image {
+  td, th {
+    vertical-align: middle;
+  }
+}

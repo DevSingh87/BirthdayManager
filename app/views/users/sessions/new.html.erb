@@ -1,2 +1,15 @@
-<h2>Log in to the Admin Dashboard</h2>
-<%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
+<section id="cover" class="min-vh-100">
+    <div id="cover-caption">
+        <div class="container">
+            <div class="row text-white">
+                <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4" id="login">
+                    <h4 class="display-4 py-2 text-truncate">Birthday Manager</h4>
+                    <div class="px-2">
+                        <h6>Manage birthdays of your loved ones and receive reminder before 24-48 hours before</h6>
+                        <%= link_to "#{image_tag '/assets/google-logo.png', size: '40'} Sign in with Google".html_safe, user_google_oauth2_omniauth_authorize_path, class: "btn btn-primary btn-lg" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

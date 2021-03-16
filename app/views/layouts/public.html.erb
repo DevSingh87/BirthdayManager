@@ -13,7 +13,6 @@
   </head>
 
   <body>
-    <%= render 'layouts/navbar' %>
     <% if flash.any? %>
       <% flash.each do |key, value| -%>
         <div class="<%= flash_class(key) %> alert-dismissible fade show" role="alert">
@@ -25,8 +24,6 @@
       <% end -%>
     <% end %>
 
-    <div class="container">
-      <%= yield %>
-    </div>
+    <%= yield %>
   </body>
 </html>
