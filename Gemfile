@@ -48,6 +48,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #Authentication
-gem 'devise'
-gem 'omniauth'
-gem 'omniauth-google-oauth2'
+gem "devise", git: "https://github.com/heartcombo/devise"
+gem 'omniauth', '~> 1.9.0'
+gem 'omniauth-google-oauth2', '~> 0.8.0'
