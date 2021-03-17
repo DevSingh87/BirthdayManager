@@ -51,3 +51,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "devise", git: "https://github.com/heartcombo/devise"
 gem 'omniauth', '~> 1.9.0'
 gem 'omniauth-google-oauth2', '~> 0.8.0'
+
+gem "activerecord-import"

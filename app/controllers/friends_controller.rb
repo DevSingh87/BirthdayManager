@@ -22,12 +22,22 @@ class FriendsController < ApplicationController
 
   # POST /friends or /friends.json
   def create
-    @friend = Friend.new(friend_params)
-    @friend.user = current_user
-    if @friend.save
-      redirect_to @friend, notice: "Friend was successfully created."
+    if params[:file].present?
+      @result, @error = CsvImportService.new(params[:file], current_user).perform
+      if @result && @error.nil?
+        redirect_to friends_path, notice: "Friends data imported successfully."
+      else
+        flash[:error] = "#{@error}"
+        redirect_back(fallback_location: "/")
+      end
     else
-      render :new, status: :unprocessable_entity
+      @friend = Friend.new(friend_params)
+      @friend.user = current_user
+      if @friend.save
+        redirect_to friends_path, notice: "Friend was successfully created."
+      else
+        render :new, status: :unprocessable_entity
+      end
     end
   end
 
@@ -45,6 +55,8 @@ class FriendsController < ApplicationController
     @friend.destroy
     redirect_to friends_url, notice: "Friend was successfully destroyed."
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
