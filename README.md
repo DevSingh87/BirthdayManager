@@ -1,24 +1,36 @@
-# README
+# How to run app locally
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application runs in a docker container. So, please make sure you have installed Docker on your system.
 
-Things you may want to cover:
+Please follow these steps to run application locally on your system.
 
-* Ruby version
 
-* System dependencies
+* Clone the repository.
 
-* Configuration
+ `git clone git@github.com:DevSingh87/BirthdayManager.git`
 
-* Database creation
+* Go to the cloned app.
 
-* Database initialization
+ `cd BirthdayManager`
 
-* How to run the test suite
+* Run docker build command.
 
-* Services (job queues, cache servers, search engines, etc.)
+ `docker-compose build`
 
-* Deployment instructions
+* Once you have got docker container and images built, create database.
 
-* ...
+ `docker-compose run web bundle exec rake db:create`
+
+
+* Create tables in the new created database.
+
+ `docker-compose run web bundle exec rake db:migrate`
+
+* Now, you are good to run docker containerized app on your machine.
+ 
+ `docker-compose up`
+
+* Now go the brower and start creating your friends list.
+
+ `http://localhost:3000`
+
