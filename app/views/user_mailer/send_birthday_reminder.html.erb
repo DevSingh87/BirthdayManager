@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12">
+            <p>Hi <%= @user.full_name %></p>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-12">
+            <p>Your following friends are having birthday in next 48 hours.</p>
+            <% @friends.each do |f| %>
+             <p><strong>Name::</strong> <%= f.name %> | <strong>DOB:</strong>  <%= f.dob %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
