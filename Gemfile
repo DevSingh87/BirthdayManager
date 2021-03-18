@@ -54,3 +54,5 @@ gem 'omniauth', '~> 1.9.0'
 gem 'omniauth-google-oauth2', '~> 0.8.0'
 
 gem "activerecord-import"
+
+gem 'remote_syslog_logger'

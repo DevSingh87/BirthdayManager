@@ -128,4 +128,7 @@ Rails.application.configure do
     authentication: :plain,
     enable_starttls_auto: true
   }
+
+  config.logger = RemoteSyslogLogger.new('logs.papertrailapp.com', Rails.application.credentials[:PAPERTRAIL_PORT], :local_hostname => 'www42')
+
 end
