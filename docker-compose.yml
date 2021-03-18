@@ -1,0 +1,19 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./:/src"
+    environment:
+      - POSTGRES_HOST=postgres
+      - POSTGRES_USERNAME=postgres
+      - POSTGRES_PASSWORD=postgres
+      - RAILS_ENV=development
+    depends_on:
+      - "postgres"
+  postgres:
+    image: postgres:9.5.15
+    ports:
+      - "5432:5432"
