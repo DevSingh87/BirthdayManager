@@ -4,14 +4,23 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 RUN apt-get update -qq && apt-get install -y build-essential nodejs yarn
 
-WORKDIR /src
+# Create a directory called `/workdir` and make that the working directory
+ENV APP_HOME /workdir
+RUN mkdir ${APP_HOME}
+WORKDIR ${APP_HOME}
 
-COPY Gemfile* /src/
+# Copy the Gemfile
+COPY Gemfile ${APP_HOME}/Gemfile
+COPY Gemfile.lock ${APP_HOME}/Gemfile.lock
+
+# Make sure we are running bundler version 2.0
+RUN gem install bundler -v 2.0.1
 RUN bundle install
-RUN yarn install --check-files
 
-COPY ./ /src/
+# Copy the project over
+COPY . ${APP_HOME}
 
-RUN RAILS_ENV=production bundle exec rake assets:precompile
+# Map port 8080 to the outside world (your local computer)
+EXPOSE 8080
 
-CMD rm -f tmp/pids/server.pid && rails server -p 3000 -b 0.0.0.0
+ENTRYPOINT ["sh", "./entrypoint.sh"]
